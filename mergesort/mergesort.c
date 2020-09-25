@@ -1,19 +1,61 @@
 #include "mergesort.h"
 
-int* divide(int array*, int startIndex, int endIndex){
-	int size=(endIndex-startIndex);
-	int final*=(int*)malloc(size*sizeof(int*));
+//I derived this heavily from the examples linked in the lab description and this link:
+//gist.github.com/c2huc2hu/30ae823e122c113cff46b
+
+int* divide(int *array, int startIndex, int endIndex){
+	int size = (endIndex - startIndex);
+	int final* = (int*) malloc(size * sizeof(int));
 	int i;
-	for (i=startIndex; i<end; i++)
+	for (i = startIndex; i < end; i++)
 	{
-		final[i-start] = arr[i];
+		final[i - startIndex] = array[i];
 	}
 	return final;
 }
 
-void mergeBlocks
+void mergeBlocks(int *final, int *start, int *end, int startLen, int endLen){
+	int i = 0;
+       	int j = 0;
+	while(i < startLen && j < endLen){
+		if (start[i] > right[j]){
+			final[i+j] = start[j];
+			j++;
+		}
+		else{
+			final[i+j] = end[i];
+			i++;
+		}
+	}
+	
+	for(; i < startLen; i++)
+	{
+		result[i+j] = start[i];
+	}
+	for(; j < endLen; J++)
+	{
+		result[i+j] = right[j];
+	}
 
-void mergesort(int, int*) {
+	free(start);
+	free(end);
+}
 
-  return;
+void mergeSort(int *array, int len) {
+	if (len <= 1)
+	{
+		return;
+	}
+	int *start = divide(array, 0, len / 2+1);
+	int *end = divide(array, len /2, len);
+
+	printf("left: ");
+	printArray(start, len / 2);
+	printf("right: ");
+	printArray(end, len - (len / 2));
+
+	mergeSort(start, len / 2);
+	mergeSort(end, len - (len / 2));
+
+	mergeBlocks(array, start, end, len / 2, len - (len / 2));
 }
