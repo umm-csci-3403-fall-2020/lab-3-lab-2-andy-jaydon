@@ -29,7 +29,7 @@ void mergeBlocks(int *final, int *start, int *end, int startLen, int endLen){
 	{
 		result[i+j] = start[i];
 	}
-	for(; j < endLen; J++)
+	for(; j < endLen; j++)
 	{
 		result[i+j] = right[j];
 	}
