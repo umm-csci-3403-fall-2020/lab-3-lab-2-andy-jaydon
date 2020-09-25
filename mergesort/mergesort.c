@@ -46,11 +46,6 @@ void mergeSort(int *array, int len) {
 	int *start = divide(array, 0, len / 2+1);
 	int *end = divide(array, len /2, len);
 
-	printf("left: ");
-	printArray(start, len / 2);
-	printf("right: ");
-	printArray(end, len - (len / 2));
-
 	mergeSort(start, len / 2);
 	mergeSort(end, len - (len / 2));
 
