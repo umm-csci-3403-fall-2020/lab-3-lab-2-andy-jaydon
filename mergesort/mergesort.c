@@ -1,8 +1,5 @@
 #include "mergesort.h"
 
-//I derived this heavily from the examples linked in the lab description and this link:
-//gist.github.com/c2huc2hu/30ae823e122c113cff46b
-
 int* divide(int *array, int startIndex, int endIndex){
 	int size = (endIndex - startIndex);
 	int final* = (int*) malloc(size * sizeof(int));
